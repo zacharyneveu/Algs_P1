@@ -6,36 +6,47 @@
  * code class defined in code.h */
 
 
-#include"code.h" //Class definition file
+#include "code.h" //Class definition file
 #include<vector> //necessary to store code as a vector
 #include<iostream> //needed for basic input and output
 #include<cstdlib> //Include this for random generator
 
-/* Constructor calls randInit to generate a random code. */
-code::code(int n = 0, int m = 0)
+using namespace std; //using standard name space
+
+/* Length and Range Constructor calls randInit to generate a random code. */
+code::code(int codeLen, int MaxDig)
 {
-    randInit(n, m);
+    n = codeLen; //Set n for code object
+    m = MaxDig; //Set m of code object
+    randInit(); //Initialize with random integers in range
     cout << "Code Generated!" << endl;
 }//End constructor
 
+/*  Vector Constructor takes vector as input and passes it to the new code
+ *  object as its code member.  */
+code::code(vector<int> &setVector)
+{
+    n = setVector.size(); //Size of vector is size of code
+    m = 9; //Unknown Max Dig size, but this doesn't matter for this.
+    codeVector = setVector; //Code data is vector passed to function
+}//End vector constructor
+
+
 /* randInit takes the code length n, and maximum digit value m as inputs and generates
  * a code within these parameters. */
-void code::randInit(int n = 0, int m = 0)
+void code::randInit()
 {
-
-    vector<int> codeRoot; //vector variable to store code in
 
     //For loop iterates over each digit of code
     for (int i = 0; i < n; i++)
     {
-        //generate random value in range [0,m]
+        //generate random value in range [0,m-1]
         int digit = rand() % m;
 
-        codeRoot.push_back(i);
+        //Store random values in code vector
+        codeVector.push_back(digit);
     }
 
-    //Assign code data member to value created.
-    code = codeRoot;
 }//End randInit Function
 
 /* checkCorrect returns how many digits in the guess match the digits in the code both
@@ -44,19 +55,26 @@ const int code::checkCorrect(code guess)
 {
     int numCorrect = 0; //int to store total correct
 
-    // for iterates over each digit in code/guess
-    for (int i; i <= n; i++)
+    if (getLength() == guess.getLength()) //Make sure vector was entered completely
     {
-        if (code[i] == guess[i])
+        // for iterates over each digit in code/guess
+        for (int i; i < n; i++)
         {
-            numCorrect += 1;
+            //Check if code vector equals guess vector at index
+            if (getDataAt(i) == guess.getDataAt(i))
+            {
+                numCorrect += 1;
+            }
         }
-    }
 
-    return numCorrect;
+        return numCorrect;
+    }//End if statement
+    else
+    {
+        cout << "Sorry Entering Guess Failed" << endl;
+        return 0;
+    }//end of else statement
 }//end checkCorrect function
 
 /* checkIncorrect returns the number of digits in the guess that are in the code but in the wrong position. */
-const int code::checkIncorrect(code guess)
-{
-}
+//const int code::checkIncorrect(code guess)
