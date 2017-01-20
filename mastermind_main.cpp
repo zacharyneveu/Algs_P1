@@ -9,6 +9,7 @@
 #include<vector> //necessary to store code as vector
 #include "code.h" //user made file with code class
 #include "code.cpp"
+#include<exception> //Included for exceptions
 
 #define ROUNDS 4 //Number of rounds here so it is accessible
 
@@ -16,55 +17,44 @@ using namespace std; //standard name space
 
 int main()
 {
-    int length, maxDig; //n=code length, m=max digit value
+    int length, MaxValue; //n=code length, m=max digit value
     cout << "Enter Code Length: " << endl;
     cin >> length;
     cout << "Enter Maximum Digit Value: " << endl;
-    cin >> maxDig;
+    cin >> MaxValue;
 
     //initialize the code to be guessed within the specified parameters
-    code userCode(length, maxDig);
+    code secretCode(length, MaxValue);
 
     for (int j = 1; j <= ROUNDS; j++)
     {
-        vector<int> guessVector; //Vector to store guess
+        vector<int> guessVector(length); //Vector to store guess
         int input; //stores each digit of guess
         cout << "Enter Guess One Digit at a Time" << endl;
 
-        for (int i = 0; i < userCode.getLength(); i++)
+        for (int i = 0; i < secretCode.getLength(); i++)
         {
-            //Next two lines for debugging only
-            //cout<<"i= "<<i<<endl;
-            //cout<<"usercode length= "<<userCode.getLength()<<endl;
-
+			cout<<"Secret length"<<secretCode.getLength()<<endl;
             input = 0; //Make sure input is zero
-            cin >> input;
-
-            if (input >= userCode.getRange())
-            {
-                cout << "That digit cannot be in the code." << endl;
-                cout << "Please re-enter a valid input" << endl;
-                i--; //go back one step in for loop to redo input
-                continue; //return to top of the loop
-            }
-            else
-            {
-                guessVector.push_back(input); //Set input to end of vector
-            }
+            cin >> input; //store individual digit
+			guessVector.push_back(input); //Add digit to vector
         }//end for loop
 
-        code guess(guessVector); //initialize code object for guess vector
-        cout << "size of guess vector is: " << guessVector.size() << endl;
+			cout<<"before constructor"<<endl;
+        	code guess(guessVector, MaxValue); //initialize code object for guess vector
+			cout<<"after constructor"<<endl;
 
-        //check number of correct digits
-        int correct = userCode.checkCorrect(guess);
-        //int incorrect = userCode.checkIncorrect(guess);
+			//j--; //Back to beginning of round
+			//continue; //Start again at top of for loop
 
-        if (correct < userCode.getLength())
+		int correct = secretCode.checkCorrect(guess);
+
+        if (correct < secretCode.getLength())
         {
             //print number of correct digits
             cout << "Correct: " << correct << endl;
-            //cout << "Incorrect: " << incorrect << endl;
+			//Print number of incorrect digits
+            cout << "Incorrect: " << secretCode.checkIncorrect(guess) << endl;
         }
 
         else //correct==n && tries<10

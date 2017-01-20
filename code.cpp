@@ -10,25 +10,39 @@
 #include<vector> //necessary to store code as a vector
 #include<iostream> //needed for basic input and output
 #include<cstdlib> //Include this for random generator
+#include<exception> //Included for exceptions
 
 using namespace std; //using standard name space
 
 /* Length and Range Constructor calls randInit to generate a random code. */
-code::code(int codeLen, int MaxDig)
+code::code(int codeLen, int MaxValue)
 {
     n = codeLen; //Set n for code object
-    m = MaxDig; //Set m of code object
+    m = MaxValue; //Set m of code object
     randInit(); //Initialize with random integers in range
-    cout << "Code Generated!" << endl;
+    cout << "Secret Code: ";
+	for (int i=0; i < n; i++)
+	{
+		cout<<codeVector[i];
+	}
+	cout<<endl;
 }//End constructor
 
 /*  Vector Constructor takes vector as input and passes it to the new code
  *  object as its code member.  */
-code::code(vector<int> &setVector)
+code::code(vector<int> &setVector, int MaxValue)
 {
     n = setVector.size(); //Size of vector is size of code
-    m = 9; //Unknown Max Dig size, but this doesn't matter for this.
+    m = MaxValue; //Unknown Max Dig size, but this doesn't matter for this.
     codeVector = setVector; //Code data is vector passed to function
+	for(int i=0; i < n; i++)
+	{
+    	if (this->codeVector.at(i) >= m)
+    	{
+    		cout << "That vector is not valid, the range of possible digits is [0-" <<m-1<<"]"<< endl;
+			//throw range_error;
+    	}
+	}
 }//End vector constructor
 
 
@@ -36,7 +50,6 @@ code::code(vector<int> &setVector)
  * a code within these parameters. */
 void code::randInit()
 {
-
     //For loop iterates over each digit of code
     for (int i = 0; i < n; i++)
     {
@@ -44,7 +57,7 @@ void code::randInit()
         int digit = rand() % m;
 
         //Store random values in code vector
-        codeVector.push_back(digit);
+        this->codeVector.push_back(digit);
     }
 
 }//End randInit Function
@@ -77,4 +90,22 @@ const int code::checkCorrect(code guess)
 }//end checkCorrect function
 
 /* checkIncorrect returns the number of digits in the guess that are in the code but in the wrong position. */
-//const int code::checkIncorrect(code guess)
+const int code::checkIncorrect(code guess)
+{
+	int count = 0;
+	vector<int> copy = this->codeVector; //Create copy
+	for (int i=0; i<getLength(); i++)
+	{
+		bool found = false;
+		for (int j=0; j<getLength() && found==false; j++)
+		{
+			if (guess.codeVector.at(i) == copy.at(j))
+			{
+				count++;
+				copy[j] = -1; //Removes copy[j] from being checked again
+				found = true;
+			}
+		}
+	}
+	return count - this->checkCorrect(guess);
+}

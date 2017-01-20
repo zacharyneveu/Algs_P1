@@ -34,14 +34,14 @@ public:
     {
         return codeVector.at(index);
     };
-    code(int codeLen, int MaxDig);//Simple constructor
-    code(vector<int> &setVector);
+    code(int codeLen, int MaxValue);//Simple constructor
+    code(vector<int> &setVector, int MaxValue);
     const vector<int> viewCode()
     {
         return codeVector;
     }; //simple function to get data
     const int checkCorrect(code guess); //Const so cannot edit code
-    //const int checkIncorrect(code guess); //Const so cannot edit code
+    const int checkIncorrect(code guess); //Const so cannot edit code
 };
 
 #endif
