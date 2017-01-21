@@ -35,12 +35,13 @@ code::code(vector<int> &setVector, int MaxValue)
     n = setVector.size(); //Size of vector is size of code
     m = MaxValue; //Unknown Max Dig size, but this doesn't matter for this.
     codeVector = setVector; //Code data is vector passed to function
+
 	for(int i=0; i < n; i++)
 	{
     	if (this->codeVector.at(i) >= m)
     	{
-    		cout << "That vector is not valid, the range of possible digits is [0-" <<m-1<<"]"<< endl;
-			//throw range_error;
+    		cout << "That vector is cannot be right, the range of possible digits is [0-" <<m-1<<"]"<< endl;
+			break;
     	}
 	}
 }//End vector constructor
@@ -68,13 +69,13 @@ const int code::checkCorrect(code guess)
 {
     int numCorrect = 0; //int to store total correct
 
-    if (getLength() == guess.getLength()) //Make sure vector was entered completely
+    if (this->codeVector.size() == guess.codeVector.size()) //Make sure vector was entered completely
     {
         // for iterates over each digit in code/guess
         for (int i; i < n; i++)
         {
             //Check if code vector equals guess vector at index
-            if (getDataAt(i) == guess.getDataAt(i))
+            if (this->codeVector.at(i) == guess.codeVector.at(i))
             {
                 numCorrect += 1;
             }

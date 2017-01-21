@@ -26,23 +26,20 @@ int main()
     //initialize the code to be guessed within the specified parameters
     code secretCode(length, MaxValue);
 
-    for (int j = 1; j <= ROUNDS; j++)
+    for (int j = 0; j < ROUNDS; j++)
     {
-        vector<int> guessVector(length); //Vector to store guess
+        vector<int> guessVector; //Vector to store guess
         int input; //stores each digit of guess
         cout << "Enter Guess One Digit at a Time" << endl;
 
         for (int i = 0; i < secretCode.getLength(); i++)
         {
-			cout<<"Secret length"<<secretCode.getLength()<<endl;
             input = 0; //Make sure input is zero
             cin >> input; //store individual digit
 			guessVector.push_back(input); //Add digit to vector
         }//end for loop
 
-			cout<<"before constructor"<<endl;
         	code guess(guessVector, MaxValue); //initialize code object for guess vector
-			cout<<"after constructor"<<endl;
 
 			//j--; //Back to beginning of round
 			//continue; //Start again at top of for loop

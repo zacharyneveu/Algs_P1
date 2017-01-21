@@ -25,10 +25,10 @@ public:
         return m;
     };
 
-    //2*sizeof int because for some reason vector is double size
+	//simple function to return size of a codeVector.
     int getLength()
     {
-        return sizeof(codeVector) / (2 * sizeof(int));
+        return codeVector.size();
     };
     int getDataAt(int index)
     {
