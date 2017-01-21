@@ -36,21 +36,21 @@ int main()
         {
             input = 0; //Make sure input is zero
             cin >> input; //store individual digit
-			guessVector.push_back(input); //Add digit to vector
+            guessVector.push_back(input); //Add digit to vector
         }//end for loop
 
-        	code guess(guessVector, MaxValue); //initialize code object for guess vector
+        code guess(guessVector, MaxValue); //initialize code object for guess vector
 
-			//j--; //Back to beginning of round
-			//continue; //Start again at top of for loop
+        //j--; //Back to beginning of round
+        //continue; //Start again at top of for loop
 
-		int correct = secretCode.checkCorrect(guess);
+        int correct = secretCode.checkCorrect(guess);
 
         if (correct < secretCode.getLength())
         {
             //print number of correct digits
             cout << "Correct: " << correct << endl;
-			//Print number of incorrect digits
+            //Print number of incorrect digits
             cout << "Incorrect: " << secretCode.checkIncorrect(guess) << endl;
         }
 

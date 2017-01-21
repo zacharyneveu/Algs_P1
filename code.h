@@ -25,22 +25,27 @@ public:
         return m;
     };
 
-	//simple function to return size of a codeVector.
+    //simple function to return size of a codeVector.
     int getLength()
     {
         return codeVector.size();
     };
+
     int getDataAt(int index)
     {
         return codeVector.at(index);
     };
-    code(int codeLen, int MaxValue);//Simple constructor
+
+	//Constructor used for secret code
+    code(int codeLen, int MaxValue);
+
+	//Constructor used for guess code when codeVector is known.
     code(vector<int> &setVector, int MaxValue);
-    const vector<int> viewCode()
-    {
-        return codeVector;
-    }; //simple function to get data
+
+	//function to check how many digits are correct
     const int checkCorrect(code guess); //Const so cannot edit code
+
+	//function to check how many digits are correct but in the wrong place
     const int checkIncorrect(code guess); //Const so cannot edit code
 };
 

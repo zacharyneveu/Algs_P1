@@ -21,11 +21,13 @@ code::code(int codeLen, int MaxValue)
     m = MaxValue; //Set m of code object
     randInit(); //Initialize with random integers in range
     cout << "Secret Code: ";
-	for (int i=0; i < n; i++)
-	{
-		cout<<codeVector[i];
-	}
-	cout<<endl;
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << codeVector[i];
+    }
+
+    cout << endl;
 }//End constructor
 
 /*  Vector Constructor takes vector as input and passes it to the new code
@@ -36,14 +38,15 @@ code::code(vector<int> &setVector, int MaxValue)
     m = MaxValue; //Unknown Max Dig size, but this doesn't matter for this.
     codeVector = setVector; //Code data is vector passed to function
 
-	for(int i=0; i < n; i++)
-	{
-    	if (this->codeVector.at(i) >= m)
-    	{
-    		cout << "That vector is cannot be right, the range of possible digits is [0-" <<m-1<<"]"<< endl;
-			break;
-    	}
-	}
+    for (int i = 0; i < n; i++)
+    {
+        if (this->codeVector.at(i) >= m)
+        {
+            cout << "That vector is cannot be right, the range of possible digits is [0-" <<
+                 m - 1 << "]" << endl;
+            break;
+        }
+    }
 }//End vector constructor
 
 
@@ -69,7 +72,8 @@ const int code::checkCorrect(code guess)
 {
     int numCorrect = 0; //int to store total correct
 
-    if (this->codeVector.size() == guess.codeVector.size()) //Make sure vector was entered completely
+    if (this->codeVector.size() ==
+            guess.codeVector.size()) //Make sure vector was entered completely
     {
         // for iterates over each digit in code/guess
         for (int i; i < n; i++)
@@ -93,20 +97,23 @@ const int code::checkCorrect(code guess)
 /* checkIncorrect returns the number of digits in the guess that are in the code but in the wrong position. */
 const int code::checkIncorrect(code guess)
 {
-	int count = 0;
-	vector<int> copy = this->codeVector; //Create copy
-	for (int i=0; i<getLength(); i++)
-	{
-		bool found = false;
-		for (int j=0; j<getLength() && found==false; j++)
-		{
-			if (guess.codeVector.at(i) == copy.at(j))
-			{
-				count++;
-				copy[j] = -1; //Removes copy[j] from being checked again
-				found = true;
-			}
-		}
-	}
-	return count - this->checkCorrect(guess);
+    int count = 0;
+    vector<int> copy = this->codeVector; //Create copy
+
+    for (int i = 0; i < getLength(); i++)
+    {
+        bool found = false;
+
+        for (int j = 0; j < getLength() && found == false; j++)
+        {
+            if (guess.codeVector.at(i) == copy.at(j))
+            {
+                count++;
+                copy[j] = -1; //Removes copy[j] from being checked again
+                found = true;
+            }
+        }
+    }
+
+    return count - this->checkCorrect(guess);
 }
