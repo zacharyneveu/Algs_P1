@@ -1,6 +1,6 @@
 COMPILER=g++
 CLASS=code
-MAIN=mastermind_main
+MAIN=PartAMain
 DEPS=code.h, code.cpp
 
 debug: code.cpp
