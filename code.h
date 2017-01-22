@@ -2,7 +2,8 @@
  * Zachary Neveu, neveu.z@husky.neu.edu
  * Jake Dec, dec.j@husky.neu.edu.
  *
- * This file contains the definition of the code class.  Implementations for the member functions of this class can be found in code.cpp */
+ * This file contains the definition of the code class.  Implementations for
+ * the member functions of this class can be found in code.cpp */
 
 #ifndef CODE_H
 #define CODE_H
@@ -20,20 +21,11 @@ private:
     //Called by constructor, not accessible by user.
     void randInit();
 public:
-    int getRange()
-    {
-        return m;
-    };
 
     //simple function to return size of a codeVector.
     int getLength()
     {
         return codeVector.size();
-    };
-
-    int getDataAt(int index)
-    {
-        return codeVector.at(index);
     };
 
 	//Constructor used for secret code
