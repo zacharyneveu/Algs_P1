@@ -28,16 +28,16 @@ public:
         return codeVector.size();
     };
 
-	//Constructor used for secret code
+    //Constructor used for secret code
     code(int codeLen, int MaxValue);
 
-	//Constructor used for guess code when codeVector is known.
+    //Constructor used for guess code when codeVector is known.
     code(vector<int> &setVector, int MaxValue);
 
-	//function to check how many digits are correct
-    const int checkCorrect(code guess); //Const so cannot edit code
+    //function to check how many digits are correct
+    const int checkCorrect(code guess);   //Const so cannot edit code
 
-	//function to check how many digits are correct but in the wrong place
+    //function to check how many digits are correct but in the wrong place
     const int checkIncorrect(code guess); //Const so cannot edit code
 };
 

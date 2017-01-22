@@ -12,7 +12,6 @@
 #include<vector> //necessary to store code as vector
 #include "code.h" //user made file with code class
 #include "code.cpp"
-#include<exception> //Included for exceptions
 
 #define ROUNDS 10 //Number of rounds here so it is accessible
 
@@ -20,7 +19,7 @@ using namespace std; //standard name space
 
 int main()
 {
-	//Get inputs for Random Generator
+    //Get inputs for Random Generator
     int length, MaxValue; //n=code length, m=max digit value
     cout << "Enter Code Length: " << endl;
     cin >> length;
@@ -30,7 +29,7 @@ int main()
     //initialize the code to be guessed within the specified parameters
     code secretCode(length, MaxValue);
 
-	//Iterate over rounds of the game
+    //Iterate over rounds of the game
     for (int j = 0; j < ROUNDS; j++)
     {
         vector<int> guessVector; //Vector to store guess
@@ -44,13 +43,13 @@ int main()
             guessVector.push_back(input); //Add digit to vector
         }//end for loop for input
 
-		//initialize code object for guess vector
+        //initialize code object for guess vector
         code guess(guessVector, MaxValue);
 
-		//Store  number correct as int so only one call needed
+        //Store  number correct as int so only one call needed
         int correct = secretCode.checkCorrect(guess);
 
-		//If answer not completely correct
+        //If answer not completely correct
         if (correct < secretCode.getLength())
         {
             //print number of correct digits

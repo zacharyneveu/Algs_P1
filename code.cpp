@@ -31,21 +31,22 @@ code::code(int codeLen, int MaxValue)
 }//End constructor
 
 /*  Vector Constructor takes vector as input and passes it to the new code
- *  object as its code member.  */
+ *  object as its code member. If digits of vector are out of range, user is
+ *  notified and program continues. */
 code::code(vector<int> &setVector, int MaxValue)
 {
     n = setVector.size(); //Size of vector is size of code
     m = MaxValue; //Unknown Max Dig size, but this doesn't matter for this.
     codeVector = setVector; //Code data is vector passed to function
 
-	//Validate that all digits of input are in range.  If this fails, user is
-	//still given a warning and regular feedback is returned.
+    //Validate that all digits of input are in range.  If this fails, user is
+    //still given a warning and regular feedback is returned.
     for (int i = 0; i < n; i++)
     {
         if (this->codeVector.at(i) >= m)
         {
             cout << "That vector is cannot be right, the range of possible\
-			   	digits is [0-" <<m - 1 << "]" << endl;
+			   	digits is [0-" << m - 1 << "]" << endl;
             break;
         }
     }
@@ -56,8 +57,8 @@ code::code(vector<int> &setVector, int MaxValue)
  * generates a code within these parameters. */
 void code::randInit()
 {
-	//Set seed for random number generator based on clock
-	srand(time(NULL));
+    //Set seed for random number generator based on clock
+    srand(time(NULL));
 
     //For loop iterates over each digit of code
     for (int i = 0; i < n; i++)
@@ -78,7 +79,7 @@ const int code::checkCorrect(code guess)
 {
     int numCorrect = 0; //int to store total correct
 
-	//Validate that vector was entered completely
+    //Validate that vector was entered completely
     if (this->codeVector.size() == guess.codeVector.size())
     {
         // for iterates over each digit in code/guess
@@ -94,7 +95,7 @@ const int code::checkCorrect(code guess)
         return numCorrect;
     }//End if statement
 
-	//Else triggers when guess is wrong length
+    //Else triggers when guess is wrong length
     else
     {
         cout << "Sorry Entering Guess Failed" << endl;
@@ -108,12 +109,12 @@ const int code::checkIncorrect(code guess)
     int count = 0;//Variable for number of incorrect digits
     vector<int> copy = this->codeVector; //Create copy
 
-	//Outer loop iterates over digits in secret code
+    //Outer loop iterates over digits in secret code
     for (int i = 0; i < this->n; i++)
     {
         bool found = false;
 
-		//inner loop iterates over digits in guess code
+        //inner loop iterates over digits in guess code
         for (int j = 0; j < this->n && found == false; j++)
         {
             if (guess.codeVector.at(i) == copy.at(j))
