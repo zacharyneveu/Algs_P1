@@ -1,9 +1,9 @@
-/* Project #1
- * Zachary Neveu, neveu.z@husky.neu.edu, (207) 607-9005)
- * Jake Dec, dec.j@husky.neu.edu
- *
- * This file (code.cpp) contains the implementations of the member functions
- * of the code class defined in code.h */
+// Project #1
+// Zachary Neveu, neveu.z@husky.neu.edu, (207) 607-9005)
+// Jake Dec, dec.j@husky.neu.edu
+//
+// This file (code.cpp) contains the implementations of the member functions
+// of the code class defined in code.h */
 
 
 #include "code.h" //Class definition file
@@ -14,7 +14,7 @@
 
 using namespace std; //using standard name space
 
-/* Length and Range Constructor calls randInit to generate a random code. */
+//Length and Range Constructor calls randInit to generate a random code.
 code::code(int codeLen, int MaxValue)
 {
     n = codeLen; //Set n for code object
@@ -30,9 +30,9 @@ code::code(int codeLen, int MaxValue)
     cout << endl;
 }//End constructor
 
-/*  Vector Constructor takes vector as input and passes it to the new code
- *  object as its code member. If digits of vector are out of range, user is
- *  notified and program continues. */
+//Vector Constructor takes vector as input and passes it to the new code
+//object as its code member. If digits of vector are out of range, user is
+//notified and program continues.
 code::code(vector<int> &setVector, int MaxValue)
 {
     n = setVector.size(); //Size of vector is size of code
@@ -53,8 +53,8 @@ code::code(vector<int> &setVector, int MaxValue)
 }//End vector constructor
 
 
-/* randInit takes the code length n, and maximum digit value m as inputs and
- * generates a code within these parameters. */
+// randInit takes the code length n, and maximum digit value m as inputs and
+// generates a code within these parameters.
 void code::randInit()
 {
     //Set seed for random number generator based on clock
@@ -72,9 +72,9 @@ void code::randInit()
 
 }//End randInit Function
 
-/* checkCorrect returns how many digits in the guess match the digits in the
- * code both in value and in position.  Check Correct also validates that all
- * digits of the input are within the specified range*/
+// checkCorrect returns how many digits in the guess match the digits in the
+// code both in value and in position.  Check Correct also validates that all
+// digits of the input are within the specified range*/
 const int code::checkCorrect(code guess)
 {
     int numCorrect = 0; //int to store total correct
@@ -103,7 +103,8 @@ const int code::checkCorrect(code guess)
     }//end of else statement
 }//end checkCorrect function
 
-/* checkIncorrect returns the number of digits in the guess that are in the code but in the wrong position. */
+// checkIncorrect returns the number of digits in the guess that are in the
+// code but in the wrong position.
 const int code::checkIncorrect(code guess)
 {
     int count = 0;//Variable for number of incorrect digits

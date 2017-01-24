@@ -1,17 +1,16 @@
-/* Project #1
- * Zachary Neveu, neveu.z@husky.neu.edu
- * Jake Dec, dec.j@husky.neu.edu
- *
- * This file contains the main function of a game of Mastermind.  The user is
- * asked to specify the length of the code, which the program generates, then
- * the user is given ten tries to guess the code based on responses from the
- * program.
- * */
+//Project #1
+// Zachary Neveu, neveu.z@husky.neu.edu
+// Jake Dec, dec.j@husky.neu.edu
+
+// This file contains the main function of a game of Mastermind.  The user is
+// asked to specify the length of the code, which the program generates, then
+// the user is given ten tries to guess the code based on responses from the
+// program.
 
 #include<iostream> //standard inputs and outputs
 #include<vector> //necessary to store code as vector
 #include "code.h" //user made file with code class
-#include "code.cpp"
+#include "code.cpp" //user made cpp file
 
 #define ROUNDS 10 //Number of rounds here so it is accessible
 

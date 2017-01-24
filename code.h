@@ -1,12 +1,13 @@
-/* Project #1
- * Zachary Neveu, neveu.z@husky.neu.edu
- * Jake Dec, dec.j@husky.neu.edu.
- *
- * This file contains the definition of the code class.  Implementations for
- * the member functions of this class can be found in code.cpp */
+// Project #1
+// Zachary Neveu, neveu.z@husky.neu.edu
+// Jake Dec, dec.j@husky.neu.edu.
+//
+// This file contains the definition of the code class.  Implementations
+// for the member functions of this class can be found in code.cpp
 
 #ifndef CODE_H
 #define CODE_H
+
 
 using namespace std; //using standard name space
 
