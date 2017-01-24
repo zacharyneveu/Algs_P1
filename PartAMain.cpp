@@ -71,4 +71,10 @@ int main()
             break;//End game
         }
 	}//End for loop for three guesses
+
+	//prevents VS from exiting on run
+	system("pause");
+
+	//exit program
+	return 0;
 }//End Main Function

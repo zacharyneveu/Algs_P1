@@ -7,10 +7,10 @@
 
 
 #include "code.h" //Class definition file
-#include<vector> //necessary to store code as a vector
+
 #include<iostream> //needed for basic input and output
 #include<cstdlib> //Include this for random generator
-#include<exception> //Included for exceptions
+#include<time.h> //For seeding
 
 using namespace std; //using standard name space
 
@@ -75,7 +75,7 @@ void code::randInit()
 /* checkCorrect returns how many digits in the guess match the digits in the
  * code both in value and in position.  Check Correct also validates that all
  * digits of the input are within the specified range*/
-const int code::checkCorrect(code guess)
+const int code::checkCorrect(const code &guess)
 {
     int numCorrect = 0; //int to store total correct
 
@@ -83,7 +83,7 @@ const int code::checkCorrect(code guess)
     if (this->codeVector.size() == guess.codeVector.size())
     {
         // for iterates over each digit in code/guess
-        for (int i; i < n; i++)
+        for (int i = 0; i < n; i++)
         {
             //Check if code vector equals guess vector at index
             if (this->codeVector.at(i) == guess.codeVector.at(i))
@@ -104,7 +104,7 @@ const int code::checkCorrect(code guess)
 }//end checkCorrect function
 
 /* checkIncorrect returns the number of digits in the guess that are in the code but in the wrong position. */
-const int code::checkIncorrect(code guess)
+const int code::checkIncorrect(const code &guess)
 {
     int count = 0;//Variable for number of incorrect digits
     vector<int> copy = this->codeVector; //Create copy
