@@ -8,6 +8,8 @@
 #ifndef CODE_H
 #define CODE_H
 
+#include<vector>
+
 using namespace std; //using standard name space
 
 class code
@@ -35,10 +37,10 @@ public:
     code(vector<int> &setVector, int MaxValue);
 
     //function to check how many digits are correct
-    const int checkCorrect(code guess);   //Const so cannot edit code
+    const int checkCorrect(const code &guess);   //Const so cannot edit code
 
     //function to check how many digits are correct but in the wrong place
-    const int checkIncorrect(code guess); //Const so cannot edit code
+    const int checkIncorrect(const code &guess); //Const so cannot edit code 
 };
 
 #endif
