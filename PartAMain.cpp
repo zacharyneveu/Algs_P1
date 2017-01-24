@@ -2,10 +2,9 @@
  * Zachary Neveu, neveu.z@husky.neu.edu
  * Jake Dec, dec.j@husky.neu.edu
  *
- * This file contains the main function of a game of Mastermind.  The user is
- * asked to specify the length of the code, which the program generates, then
- * the user is given ten tries to guess the code based on responses from the
- * program.
+ * This file contains the testing conditions for part A of the Mastermind
+ * project. It created a length 5 vector with the range [0,10) and runs the
+ * three provided test cases through them.
  * */
 
 #include<iostream> //standard inputs and outputs
@@ -34,7 +33,7 @@ int main()
 			int guessArray1[5] ={5, 0, 3, 2, 6};
 			vector<int> guess1Vector(guessArray1,guessArray1+5);
 			guessVector = guess1Vector;
-			cout<<"Guess 1: {5, 0, 3, 1, 6}"<<endl;
+			cout<<"Guess 1: {5, 0, 3, 2, 6}"<<endl;
 		}
 		else if(i==1) {
 			int guessArray2[5] = {2, 1, 2, 2, 2};
