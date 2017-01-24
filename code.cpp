@@ -33,7 +33,7 @@ code::code(int codeLen, int MaxValue)
 /*  Vector Constructor takes vector as input and passes it to the new code
  *  object as its code member. If digits of vector are out of range, user is
  *  notified and program continues. */
-code::code(vector<int> &setVector, int MaxValue)
+code::code(const vector<int> &setVector, int MaxValue)
 {
     n = setVector.size(); //Size of vector is size of code
     m = MaxValue; //Unknown Max Dig size, but this doesn't matter for this.
@@ -103,7 +103,8 @@ const int code::checkCorrect(const code &guess)
     }//end of else statement
 }//end checkCorrect function
 
-/* checkIncorrect returns the number of digits in the guess that are in the code but in the wrong position. */
+/* checkIncorrect returns the number of digits in the guess that are in the 
+code but in the wrong position. */
 const int code::checkIncorrect(const code &guess)
 {
     int count = 0;//Variable for number of incorrect digits

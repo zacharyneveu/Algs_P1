@@ -34,7 +34,7 @@ public:
     code(int codeLen, int MaxValue);
 
     //Constructor used for guess code when codeVector is known.
-    code(vector<int> &setVector, int MaxValue);
+    code(const vector<int> &setVector, int MaxValue);
 
     //function to check how many digits are correct
     const int checkCorrect(const code &guess);   //Const so cannot edit code

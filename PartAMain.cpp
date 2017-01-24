@@ -4,7 +4,7 @@
  *
  * This file contains the testing conditions for part A of the Mastermind
  * project. It created a length 5 vector with the range [0,10) and runs the
- * three provided test cases through them.
+ * three provided test cases against the code.
  * */
 
 #include<iostream> //standard inputs and outputs
@@ -71,9 +71,10 @@ int main()
         }
 	}//End for loop for three guesses
 
-	//prevents VS from exiting on run
-	system("pause");
+
 
 	//exit program
 	return 0;
 }//End Main Function
+
+
