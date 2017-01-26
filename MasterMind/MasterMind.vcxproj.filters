@@ -18,12 +18,24 @@
     <ClCompile Include="code.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PartAMain.cpp">
+    <ClCompile Include="response.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mastermind.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="response.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mastermind.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -20,17 +20,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="code.cpp" />
-    <ClCompile Include="PartAMain.cpp" />
+    <ClCompile Include="mastermind.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="response.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code.h" />
+    <ClInclude Include="mastermind.h" />
+    <ClInclude Include="response.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{84683AFC-510A-42B4-8576-96C0F2983C3B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>MasterMind</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>NevDec1A</ProjectName>
+    <ProjectName>NevDec1B</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
