@@ -27,7 +27,7 @@ public:
     }
 
     //printSC prints Secret Code
-    void printSC();
+    void printSC() const;
 
     //humanGuess() reads a guess from the keyboard and returns a code object
     //that represents the guess.
@@ -35,11 +35,11 @@ public:
 
     //getResponse() is passed two codes and returns a response.  The first
     //argument is the guess, the second is the secret code.
-    response getResponse(code guessCode, code secretCode);
+    response getResponse(const code &guessCode, const code &secretCode);
 
     //isSolved() is passed a response and returns true if the response is the
     //indicates that the code has been guessed
-    bool isSolved(response checkResponse);
+    bool isSolved(const response &checkResponse);
 
     //playGame() initializes a random code, prints it to the screen, then
     //iteratively gets a guess from the user and prints the response until the
