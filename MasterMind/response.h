@@ -1,4 +1,7 @@
-#pragma once
+#ifndef RESPONSE_H
+#define RESPONSE_H
+
+#include "code.h"
 
 //Zachary Neveu | neveu.z@husky.neu.edu
 //Jake Dec | dec.j@husky.neu.edu
@@ -21,26 +24,27 @@ public:
     }
 
     //getCorrect returns the correct data member.
-    int getCorrect() const;
+    int getCorrect() const
     {
         return correct;
     }
 
     //setCorrect sets the correct data member.
-    void setCorrect(const int &numCorrect);
+    void setCorrect(const int &numCorrect)
     {
         this->correct = numCorrect;
     }
 
     //getIncorrect returns the incorrect data member.
-    int getIncorrect() const;
+    int getIncorrect() const
     {
         return incorrect;
     }
 
     //setIncorrect sets the incorrect data member.
-    void setIncorrect(const int &numIncorrect);
+    void setIncorrect(const int &numIncorrect)
     {
         this->incorrect = numIncorrect;
     }
 };
+#endif
