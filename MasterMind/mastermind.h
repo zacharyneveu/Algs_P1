@@ -11,21 +11,22 @@ class mastermind
 {
 private:
     code secretCode;
+	int n,m; //n=code length, m=Max digit value.
 public:
     //Default constructor passes n = 5 and m = 10
 	//Secret codes are generated in constructor, because it would be
 	//foolish to have a mastermind object without a secret code.
     mastermind()
     {
-        code createCode(5, 10); //create new code with 5 and 10
-        secretCode = createCode; //set secret code to this new code
+		this->n = 5;
+		this->m = 10;
     }
 
     //Constructor can be passed values for n and m
     mastermind(int n, int m)
     {
-        code createCode(n, m);
-        secretCode = createCode;
+		this->n = n;
+		this->m = m;
     }
 
 	//printCode() prints a code by calling the print code function defined in

@@ -27,8 +27,10 @@ code mastermind::humanGuess() {
 //constructor because there should never be a response created that is not from
 //codes.
 response getResponse(const code &guessCode) {
-	response checkGuess(guessCode,this->secretCode);
-	return response;
+	int correct = this->secretCode.checkCorrect(guessCode);
+	int incorrect = this->secretCode.checkIncorrect(guessCode);
+	response guessResponse(correct, incorrect);
+	return guessResponse;
 }//end of function
 
 //isSolved() is passed a response and returns true if the response is the
