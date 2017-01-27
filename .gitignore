@@ -1,1 +1,10 @@
 *.suo
+*.obj
+MasterMind/x64/Debug/MasterMind.log
+*.tlog
+MasterMind/x64/Debug/vc140.idb
+*.pdb
+x64/Debug/NevDec1B.exe
+*.ilk
+*.db
+NevDec-1B.VC.VC.opendb
