@@ -13,6 +13,8 @@ private:
     code secretCode;
 public:
     //Default constructor passes n = 5 and m = 10
+	//Secret codes are generated in constructor, because it would be
+	//foolish to have a mastermind object without a secret code.
     mastermind()
     {
         code createCode(5, 10); //create new code with 5 and 10
@@ -26,16 +28,21 @@ public:
         secretCode = createCode;
     }
 
-    //printSC prints Secret Code
-    void printSC() const;
+    //printCode defined in code.h and implemented in code.cpp because it acts
+	//only on code objects, having nothing to do with the rest of the
+	//mastermind class.
 
     //humanGuess() reads a guess from the keyboard and returns a code object
-    //that represents the guess.
+    //that represents the guess.  Inputs are validated to be the correct
+	//length and to be in the correct range by the code constructor called.
     code humanGuess();
 
-    //getResponse() is passed two codes and returns a response.  The first
-    //argument is the guess, the second is the secret code.
-    response getResponse(const code &guessCode, const code &secretCode);
+	//getResponse() is passed a guess code, and creates a response object
+	//using the guess code and secret code as arguments for the
+	//response constructor.  Processing codes into a response is done in the
+	//response constructor, because it should not be possible to create a
+	//response arbitrarily.
+    response getResponse(const code &guessCode);
 
     //isSolved() is passed a response and returns true if the response is the
     //indicates that the code has been guessed

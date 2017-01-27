@@ -129,3 +129,17 @@ const int code::checkIncorrect(const code &guess)
 
 	return count - this->checkCorrect(guess);
 }//End Check Incorrect Function
+
+const void printCode() {
+	//Preface printed value with code: so user knows what is being printed
+	cout<<"Code: "<<endl;
+
+	//iterate over all digits of code
+	for (int i=0; i<this->n; i++)
+	{
+		//Print value of code at place
+		cout<<this->codeVector.at(i);
+	}
+	//fresh line at end of code
+	cout<<endl;
+}

@@ -1,0 +1,8 @@
+Note 1: Description sheet says to get user input for n and m in one
+mastermind constructor.  It also says not to initialize a secret code until
+the playGame() function is called.  Instead, could we take m and n as arguments
+when the program is run from the command line? i.e. call
+./mastermind_main 3 7 to customize the length and max digit or
+./mastermind_main to use defults.
+
+I know how to do this, but would that be a valid solution?

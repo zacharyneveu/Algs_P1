@@ -25,6 +25,11 @@ private:
 		   // randInit() Called by constructor, not accessible by user.
 	void randInit();
 public:
+	//simple function used to get max digit size of secret code
+	int getMaxValue()
+	{
+		return m;
+	}
 
 	//simple function to return size of a codeVector.
 	int getLength()
@@ -50,6 +55,8 @@ public:
 												 // checkIncorrect returns the number of digits in the guess that are in the
 												 //code but in the wrong position.
 	const int checkIncorrect(const code &guess); //Const so cannot edit code
+	//Function to print the code object stored in a code object
+	const void printCode();
 };
 
 #endif
