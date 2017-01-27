@@ -1,3 +1,4 @@
+#define ROUNDS 10 //Hard coded but accessible here
 
 //humanGuess() reads a guess from the keyboard and returns a code object
 //that represents the guess.  Inputs are validated to be the right length
@@ -56,7 +57,7 @@ void playGame() {
 	secretCode.printCode();
 
 	bool won = false; //bool for if guess is correct set to false by default
-	for (int i=0; i<10; i++)
+	for (int i=0; i<ROUNDS; i++)
 	{
 
 		//Let user input a guess
@@ -68,12 +69,12 @@ void playGame() {
 		won = isSolved(guessResponse);
 	}
 
-	if (won == true)
+	if (won == true) //if user has one the game in ten tries
 	{
 		cout<<"You Have Won!!!"<<endl;
 	}
 
-	else
+	else //after ten tries guess has not been correct
 	{
 		cout<<"Sorry, you lost..."<<endl;
 	}

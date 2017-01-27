@@ -10,12 +10,10 @@
 class mastermind
 {
 private:
-    code secretCode;
-	int n,m; //n=code length, m=Max digit value.
+    code secretCode; //code object to store secret code
+	int n,m; 		 //n=code length, m=Max digit value.
 public:
     //Default constructor passes n = 5 and m = 10
-	//Secret codes are generated in constructor, because it would be
-	//foolish to have a mastermind object without a secret code.
     mastermind()
     {
 		this->n = 5;
