@@ -39,7 +39,7 @@ public:
 
 	//Length and Range Constructor calls randInit to generate a random
 	//code. This constructor used for secret code.
-	code(int codeLen, int MaxValue);
+	code(int codeLen = 0, int MaxValue = 0);
 
 	//  Vector Constructor takes vector as input and passes it to the new code
 	//  object as its code member. If digits of vector are out of range, user

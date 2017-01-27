@@ -20,14 +20,6 @@ code::code(int codeLen, int MaxValue)
 	n = codeLen; //Set n for code object
 	m = MaxValue; //Set m of code object
 	randInit(); //Initialize with random integers in range
-	cout << "Secret Code: ";
-
-	for (int i = 0; i < n; i++)
-	{
-		cout << codeVector[i];
-	}
-
-	cout << endl;
 }//End constructor
 
  //  Vector Constructor takes vector as input and passes it to the new code
@@ -130,15 +122,15 @@ const int code::checkIncorrect(const code &guess)
 	return count - this->checkCorrect(guess);
 }//End Check Incorrect Function
 
-const void printCode() {
+const void code::printCode() {
 	//Preface printed value with code: so user knows what is being printed
-	cout<<"Code: "<<endl;
+	cout<<"Code: ";
 
 	//iterate over all digits of code
-	for (int i=0; i<this->n; i++)
+	for (int i=0; i < this->n; i++)
 	{
 		//Print value of code at place
-		cout<<this->codeVector.at(i);
+		cout<<this->codeVector.at(i) << " ";
 	}
 	//fresh line at end of code
 	cout<<endl;

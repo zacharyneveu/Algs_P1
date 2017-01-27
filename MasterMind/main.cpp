@@ -35,10 +35,15 @@ int main()
 }//End Main Function
 
 void getCodeValues(int &n, int &m) {
-	printf("What is the desired length of the code: ");
-	cin >> n;
-	printf("What is the desired range for the code [0,m): ");
-	cin >> m;
+
+	while (n <= 0) {
+		printf("What is the desired length of the code: ");
+		cin >> n;
+	}
+	while (m <= 0) {
+		printf("What is the desired range for the code [0,m): ");
+		cin >> m;
+	}
 }
 
 

@@ -31,7 +31,7 @@ public:
     //setCorrect sets the correct data member.
     void setCorrect(const int &numCorrect)
     {
-        this->correct = numCorrect;
+        correct = numCorrect;
     }
 
     //getIncorrect returns the incorrect data member.
@@ -43,10 +43,10 @@ public:
     //setIncorrect sets the incorrect data member.
     void setIncorrect(const int &numIncorrect)
     {
-        this->incorrect = numIncorrect;
+        incorrect = numIncorrect;
     }
-	bool operator == (response other);
-	friend ostream& operator<< (ostream& ostr, const response&);
+	/*bool operator == (const response& right) const;
+	friend ostream& operator<< (ostream& ostr, const response&);*/
 
 };
 #endif

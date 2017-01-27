@@ -1,4 +1,8 @@
 #pragma once
+#ifndef MASTERMIND_H
+#define MASTERMIND_H
+
+#define ROUNDS 10 //Hard coded but accessible here
 
 //Zachary Neveu | neveu.z@husky.neu.edu
 //Jake Dec | dec.j@husky.neu.edu
@@ -7,24 +11,21 @@
 //Implementations for the functions in this class can be found in
 //mastermind.cpp.
 
+#include "response.h"
+#include "code.h"
+
 class mastermind
 {
 private:
     code secretCode; //code object to store secret code
-	int n,m; 		 //n=code length, m=Max digit value.
+	int n, m, guessesLeft; 		 //n=code length, m=Max digit value.
 public:
-    //Default constructor passes n = 5 and m = 10
-    mastermind()
-    {
-		this->n = 5;
-		this->m = 10;
-    }
-
     //Constructor can be passed values for n and m
-    mastermind(int n, int m)
+    mastermind(int n = 5, int m = 10)
     {
 		this->n = n;
 		this->m = m;
+		guessesLeft = ROUNDS;
     }
 
 	//printCode() prints a code by calling the print code function defined in
@@ -37,21 +38,22 @@ public:
     //humanGuess() reads a guess from the keyboard and returns a code object
     //that represents the guess.  Inputs are validated to be the correct
 	//length and to be in the correct range by the code constructor called.
-    code humanGuess()
+	code humanGuess();
 
 	//getResponse() is passed a guess code, and creates a response object
 	//using the guess code and secret code as arguments for the
 	//response constructor.  Processing codes into a response is done in the
 	//response constructor, because it should not be possible to create a
 	//response arbitrarily.
-    response getResponse(const code &guessCode)
+    response getResponse(const code &guessCode);
 
     //isSolved() is passed a response and returns true if the response is the
     //indicates that the code has been guessed
-    bool isSolved(const response &checkResponse)
+	bool isSolved(const response &checkResponse);
 
     //playGame() initializes a random code, prints it to the screen, then
     //iteratively gets a guess from the user and prints the response until the
     //game is over.
-    void playGame()
+	void playGame();
 };
+#endif

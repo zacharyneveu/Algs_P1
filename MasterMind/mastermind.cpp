@@ -1,4 +1,9 @@
-#define ROUNDS 10 //Hard coded but accessible here
+#include "mastermind.h"
+#include "code.h"
+#include "response.h"
+#include <iostream>
+
+
 
 //humanGuess() reads a guess from the keyboard and returns a code object
 //that represents the guess.  Inputs are validated to be the right length
@@ -6,11 +11,11 @@
 code mastermind::humanGuess() {
 	cout<<"Enter a guess leaving a space between each digit: ";
 
-	int digit=0;//variable to hold value of each digit
+	int digit = 0;//variable to hold value of each digit
 	vector<int> guessVector;//Vector to store partial guess code
 
 	//iterate over all digits in code
-	for (int i=0; i<secretCode.getLength(); i++)
+	for (int i=0; i < n; i++)
 	{
 		cin>>digit;
 		guessVector.push_back(digit);
@@ -18,7 +23,7 @@ code mastermind::humanGuess() {
 
 	//call code constructor to make new code object and validate that inputs
 	//are in given range.
-	code guess(guessVector,secretCode.getMaxValue());
+	code guess(guessVector,m);
 	return guess;
 }//end of function
 
@@ -27,7 +32,7 @@ code mastermind::humanGuess() {
 //constructor.  Processing codes into response is done in response
 //constructor because there should never be a response created that is not from
 //codes.
-response getResponse(const code &guessCode) {
+response mastermind::getResponse(const code &guessCode) {
 	int correct = this->secretCode.checkCorrect(guessCode);
 	int incorrect = this->secretCode.checkIncorrect(guessCode);
 	response guessResponse(correct, incorrect);
@@ -36,47 +41,38 @@ response getResponse(const code &guessCode) {
 
 //isSolved() is passed a response and returns true if the response is the
 //indicates that the code has been guessed
-bool isSolved(const response &checkResponse) {
-	//by default, game continues
-	bool solved = false;
-
-	//check if number correct in response is same as length of secret code.
-	if(checkResponse.getCorrect()==this->secretCode.getLength())
-	{
-		solved = true;
-	}
-	return solved;
+bool mastermind::isSolved(const response &checkResponse) {
+	return checkResponse.getCorrect() == n;
 }//End of function
 
 //playGame() initializes a random code, prints it to the screen, then
 //iteratively gets a guess from the user and prints the response until the
 //game is over.
-void playGame() {
+void mastermind::playGame() {
+
+	code secretCode(n, m);
+	this->secretCode = secretCode;
+
 
 	//print secret code (for tests only, disable for playing)
 	secretCode.printCode();
 
-	bool won = false; //bool for if guess is correct set to false by default
-	for (int i=0; i<ROUNDS; i++)
+	response guessResponse;
+	do
 	{
 
 		//Let user input a guess
 		code guess = humanGuess();
 
 		//determine response to guess
-		response guessResponse= getResponse(guess);
+		guessResponse= getResponse(guess);
 
-		won = isSolved(guessResponse);
-	}
+		//TODO replace with << operator
+		cout << "Correct: " << guessResponse.getCorrect() << endl;
+		cout << "Incorrect: " << guessResponse.getIncorrect() << endl;
 
-	if (won == true) //if user has one the game in ten tries
-	{
-		cout<<"You Have Won!!!"<<endl;
-	}
+	} while (!isSolved(guessResponse) && --guessesLeft > 0);
 
-	else //after ten tries guess has not been correct
-	{
-		cout<<"Sorry, you lost..."<<endl;
-	}
+		cout << (isSolved(guessResponse) ? "You Won!" : "You Lost!") << endl;
 }
 
