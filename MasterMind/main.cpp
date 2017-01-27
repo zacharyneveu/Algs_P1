@@ -9,10 +9,14 @@
 #include<iostream> //standard inputs and outputs
 #include<vector> //necessary to store code as vector
 #include "code.h" //user made file with code class
+#include "response.h" //user made file with code class
+#include "mastermind.h" //user made file with code class
 
 #define ROUNDS 10 //Number of rounds here so it is accessible
 
 using namespace std; //standard name space
+
+void getCodeValues(int &n, int &m);
 
 int main()
 {
@@ -78,5 +82,12 @@ int main()
 	 //exit program
 	return 0;
 }//End Main Function
+
+void getCodeValues(int &n, int &m) {
+	printf("What is the desired length of the code: ");
+	cin >> n;
+	printf("What is the desired range for the code [0,m): ");
+	cin >> m;
+}
 
 
