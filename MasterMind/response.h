@@ -14,10 +14,9 @@ private:
     int incorrect;
 public:
 	//simple constructor initializes data members to 0.
-    response(code guess, code secret)
-    {
-		this->correct = secret.checkCorrect(guess);
-		this->incorrect = secret.checkIncorrect(guess);
+    response(int correct=0, int incorrect=0) {
+    	this->correct = correct;
+		this->incorrect = incorrect;
     }
 
     //getCorrect returns the correct data member.
