@@ -1,3 +1,4 @@
+
 //humanGuess() reads a guess from the keyboard and returns a code object
 //that represents the guess.  Inputs are validated to be the right length
 //and to be in range by the code constructor called.
