@@ -45,5 +45,8 @@ public:
     {
         this->incorrect = numIncorrect;
     }
+	bool operator == (response other);
+	friend ostream& operator<< (ostream& ostr, const response&);
+
 };
 #endif

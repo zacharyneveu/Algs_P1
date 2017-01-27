@@ -10,11 +10,9 @@ bool response::operator == (response other) {
 		   this->getIncorrect == other.getIncorrect;
 }
 
-string response::operator << () {
-	char * result;
 
-	sprintf(result, "Number of Correct: %d\nNumber of Incorrect: %d\n", 
-		getCorrect(), getIncorrect());
-
-	return result;
+ostream& operator<< (ostream& ostr, const response& resp) {
+	ostr << "Number of correct: " << resp.getCorrect() << endl;
+	ostr << "Number of incorrect: " << resp.getIncorrect() << endl;
+	return ostr;
 }
