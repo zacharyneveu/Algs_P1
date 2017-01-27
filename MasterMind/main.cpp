@@ -20,30 +20,34 @@ void getCodeValues(int &n, int &m);
 
 int main()
 {
-	int n, m; //code length and range
+    int n, m; //code length and range
 
-	//get the desired code values from the user
-	getCodeValues(n, m); 
+    //get the desired code values from the user
+    getCodeValues(n, m);
 
-	//create the mastermind object
-	mastermind game(n, m);
+    //create the mastermind object
+    mastermind game(n, m);
 
-	//start the game, print the code
-	game.playGame();
+    //start the game, print the code
+    game.playGame();
 
-	return 0;
+    return 0;
 }//End Main Function
 
-void getCodeValues(int &n, int &m) {
+void getCodeValues(int &n, int &m)
+{
 
-	while (n <= 0) {
-		printf("What is the desired length of the code: ");
-		cin >> n;
-	}
-	while (m <= 0) {
-		printf("What is the desired range for the code [0,m): ");
-		cin >> m;
-	}
+    while (n <= 0)
+    {
+        printf("What is the desired length of the code: ");
+        cin >> n;
+    }
+
+    while (m <= 0)
+    {
+        printf("What is the desired range for the code [0,m): ");
+        cin >> m;
+    }
 }
 
 

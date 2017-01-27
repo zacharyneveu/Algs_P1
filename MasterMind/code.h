@@ -15,48 +15,48 @@ using namespace std; //using standard name space
 class code
 {
 private:
-	vector<int> codeVector; //Data member of the class
+    vector<int> codeVector; //Data member of the class
 
-	int n; //n is number of digits in code
-	int m; //m is maximum value of each digit
+    int n; //n is number of digits in code
+    int m; //m is maximum value of each digit
 
-		   // randInit takes the code length n, and maximum digit value m as inputs and
-		   // generates a code within these parameters.
-		   // randInit() Called by constructor, not accessible by user.
-	void randInit();
+    // randInit takes the code length n, and maximum digit value m as inputs and
+    // generates a code within these parameters.
+    // randInit() Called by constructor, not accessible by user.
+    void randInit();
 public:
-	//simple function used to get max digit size of secret code
-	int getMaxValue()
-	{
-		return m;
-	}
+    //simple function used to get max digit size of secret code
+    int getMaxValue()
+    {
+        return m;
+    }
 
-	//simple function to return size of a codeVector.
-	int getLength()
-	{
-		return codeVector.size();
-	};
+    //simple function to return size of a codeVector.
+    int getLength()
+    {
+        return codeVector.size();
+    };
 
-	//Length and Range Constructor calls randInit to generate a random
-	//code. This constructor used for secret code.
-	code(int codeLen = 0, int MaxValue = 0);
+    //Length and Range Constructor calls randInit to generate a random
+    //code. This constructor used for secret code.
+    code(int codeLen = 0, int MaxValue = 0);
 
-	//  Vector Constructor takes vector as input and passes it to the new code
-	//  object as its code member. If digits of vector are out of range, user
-	//  is notified and program continues.
-	// Constructor used for guess code when codeVector is known.
-	code(const vector<int> &setVector, int MaxValue);
+    //  Vector Constructor takes vector as input and passes it to the new code
+    //  object as its code member. If digits of vector are out of range, user
+    //  is notified and program continues.
+    // Constructor used for guess code when codeVector is known.
+    code(const vector<int> &setVector, int MaxValue);
 
-	// checkCorrect returns how many digits in the guess match the digits in
-	// the code both in value and in position.  Check Correct also validates
-	// that all digits of the input are within the specified range
-	const int checkCorrect(const code &guess);   //Const so cannot edit code
+    // checkCorrect returns how many digits in the guess match the digits in
+    // the code both in value and in position.  Check Correct also validates
+    // that all digits of the input are within the specified range
+    const int checkCorrect(const code &guess);   //Const so cannot edit code
 
-												 // checkIncorrect returns the number of digits in the guess that are in the
-												 //code but in the wrong position.
-	const int checkIncorrect(const code &guess); //Const so cannot edit code
-	//Function to print the code object stored in a code object
-	const void printCode();
+    // checkIncorrect returns the number of digits in the guess that are in the
+    //code but in the wrong position.
+    const int checkIncorrect(const code &guess); //Const so cannot edit code
+    //Function to print the code object stored in a code object
+    const void printCode();
 };
 
 #endif

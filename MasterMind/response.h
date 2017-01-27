@@ -16,10 +16,11 @@ private:
     int correct;
     int incorrect;
 public:
-	//simple constructor initializes data members to 0.
-    response(int correct=0, int incorrect=0) {
-    	this->correct = correct;
-		this->incorrect = incorrect;
+    //simple constructor initializes data members to 0.
+    response(int correct = 0, int incorrect = 0)
+    {
+        this->correct = correct;
+        this->incorrect = incorrect;
     }
 
     //getCorrect returns the correct data member.
@@ -45,8 +46,8 @@ public:
     {
         incorrect = numIncorrect;
     }
-	/*bool operator == (const response& right) const;
-	friend ostream& operator<< (ostream& ostr, const response&);*/
+    /*bool operator == (const response& right) const;
+    friend ostream& operator<< (ostream& ostr, const response&);*/
 
 };
 #endif
