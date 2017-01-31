@@ -55,7 +55,8 @@ public:
     // checkIncorrect returns the number of digits in the guess that are in the
     //code but in the wrong position.
     const int checkIncorrect(const code &guess); //Const so cannot edit code
-    //Function to print the code object stored in a code object
+
+    //Function to print the code object stored in a mastermind object
     const void printCode();
 };
 

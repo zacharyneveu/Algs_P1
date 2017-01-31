@@ -46,8 +46,12 @@ public:
     {
         incorrect = numIncorrect;
     }
-    /*bool operator == (const response& right) const;
-    friend ostream& operator<< (ostream& ostr, const response&);*/
+
+    //friend function for overloaded == operator to compare responses
+    friend bool operator== (const response &lhs, const response &rhs);
+
+    //Friend function for overloaded << operator to print response
+    friend ostream& operator<< (ostream& ostr, const response &resp);
 
 };
 #endif

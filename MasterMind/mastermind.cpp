@@ -73,9 +73,9 @@ void mastermind::playGame()
         guessResponse = getResponse(guess);
 
         //TODO replace with << operator
-        cout << "Correct: " << guessResponse.getCorrect() << endl;
-        cout << "Incorrect: " << guessResponse.getIncorrect() << endl;
-
+        //cout << "Correct: " << guessResponse.getCorrect() << endl;
+        //cout << "Incorrect: " << guessResponse.getIncorrect() << endl;
+        cout << guessResponse << endl;
     }
     while (!isSolved(guessResponse) && --guessesLeft > 0);
 

@@ -122,6 +122,7 @@ const int code::checkIncorrect(const code &guess)
     return count - this->checkCorrect(guess);
 }//End Check Incorrect Function
 
+//Function to print the code object stored in a mastermind object
 const void code::printCode()
 {
     //Preface printed value with code: so user knows what is being printed
