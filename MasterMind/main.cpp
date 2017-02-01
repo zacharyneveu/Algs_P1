@@ -7,8 +7,9 @@
 // three provided test cases against the code.
 
 #include<iostream> //standard inputs and outputs
-#include<vector> //necessary to store code as vector
+//#include<vector> //necessary to store code as vector
 #include "code.h" //user made file with code class
+
 void getCodeValues(int &n, int &m);
 
 int main()
@@ -43,6 +44,6 @@ void getCodeValues(int &n, int &m)
         cout << "What is the desired range for the code [0,m): " << endl;
         cin >> m;
     }
-}
+}//End of getCodeValues function
 
 

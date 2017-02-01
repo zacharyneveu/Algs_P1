@@ -46,7 +46,7 @@ response mastermind::getResponse(const code &guessCode)
 bool mastermind::isSolved(const response &checkResponse)
 {
     return checkResponse.getCorrect() == n;
-}//End of function
+}//End of isSolved function
 
 //playGame() initializes a random code, prints it to the screen, then
 //iteratively gets a guess from the user and prints the response until the
@@ -61,6 +61,7 @@ void mastermind::playGame()
     //print secret code (for tests only, disable for playing)
     secretCode.printCode();
 
+	//declare response object
     response guessResponse;
 
     do
@@ -72,13 +73,12 @@ void mastermind::playGame()
         //determine response to guess
         guessResponse = getResponse(guess);
 
-        //TODO replace with << operator
-        //cout << "Correct: " << guessResponse.getCorrect() << endl;
-        //cout << "Incorrect: " << guessResponse.getIncorrect() << endl;
+		//use overloaded operator to print response
         cout << guessResponse << endl;
-    }
+
+    }//End of do while loop
     while (!isSolved(guessResponse) && --guessesLeft > 0);
 
     cout << (isSolved(guessResponse) ? "You Won!" : "You Lost!") << endl;
-}
+}//End playGame() function
 

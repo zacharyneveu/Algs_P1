@@ -58,7 +58,7 @@ public:
 
     //Function to print the code object stored in a mastermind object
     const void printCode();
-};
+}; //End of class declaration
 
 #endif
 

@@ -53,5 +53,5 @@ public:
     //Friend function for overloaded << operator to print response
     friend ostream& operator<< (ostream& ostr, const response &resp);
 
-};
+};//End of class declaration
 #endif
