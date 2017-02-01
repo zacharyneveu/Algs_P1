@@ -9,6 +9,9 @@
 #include<iostream> //standard inputs and outputs
 #include<vector> //necessary to store code as vector
 #include "code.h" //user made file with code class
+#include "mastermind.h" //model for mastermind game
+#include "response.h" //contains class for user response
+
 void getCodeValues(int &n, int &m);
 
 int main()
@@ -23,6 +26,9 @@ int main()
 
     //start the game, print the code
     game.playGame();
+
+	//wait for user acknowledge
+	system("pause");
 
     return 0;
 }//End Main Function
