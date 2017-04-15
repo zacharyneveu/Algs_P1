@@ -1,3 +1,3 @@
 Authors: Zachary Neveu & Jake Dec
 
-The purpose of this repository is to store code for project 1 from fundamentals of engineering algorithms at NEU.
+This code implements a digital-version of the game mastermind.  It uses object-oriented design principles, classes and psuedo-random number generation.  This code was written for Introduction to Engineering Algorithms at Northeastern University.
